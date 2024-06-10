@@ -49,7 +49,7 @@ app.use( "/api/v1/profile", profileRoutes );
 app.get( "/", ( req, res ) =>
 {
   res.status( 200 ).json( {
-    message: "Welcome to the Blog App API \n change --> 5",
+    message: "Welcome to the Blog App API change --> 2",
   } );
   res.end();
 } );
