@@ -20,6 +20,6 @@ jobs:
         echo "$SSH_PRIVATE_KEY" > keyfile
         chmod 600 keyfile
         mkdir -p ~/.ssh
-        cp authorized_keys ~/.ssh/authorized_keys
-        ssh -t -i keyfile ubuntu@ec2-16-170-208-183.eu-north-1.compute.amazonaws.com "sudo bash ~/deploy.sh"
+        cp authorized_keys ~/.ssh/known_hosts
+        ssh -t -i keyfile ubuntu@16.170.208.183 "sudo bash ~/deploy.sh"
 
