@@ -20,9 +20,5 @@ jobs:
       run: |
         echo "$SSH_PRIVATE_KEY" > keyfile
         chmod 600 keyfile
-        echo "$SSH_AUTHORIZED_KEYS" > authorized_keys
-        mkdir -p ~/.ssh
-        cp authorized_keys ~/.ssh
-        sudo chmod 600 ~/.ssh/authorized_keys
-        ssh -t -i keyfile ubuntu@ec2-16-170-208-183.eu-north-1.compute.amazonaws.com  "sudo bash ~/deploy.sh"
+        ssh -t -i StrictHostKeyChecking=no keyfile ubuntu@ec2-16-170-208-183.eu-north-1.compute.amazonaws.com  "sudo bash ~/deploy.sh"
 
