@@ -20,7 +20,9 @@ jobs:
       run: |
         echo "$SSH_PRIVATE_KEY" > keyfile
         chmod 600 keyfile
-        echo "$SSH_AUTHORIZED_KEYS" > ~/.ssh/authorized_keys
+        echo "$SSH_AUTHORIZED_KEYS" > authorized_keys
+        mkdir -p ~/.ssh
+        cp authorized_keys ~/.ssh/authorized_keys
         sudo chmod 600 ~/.ssh/authorized_keys
         ssh -t -i keyfile ubuntu@16.170.208.183 "sudo bash ~/deploy.sh"
 
