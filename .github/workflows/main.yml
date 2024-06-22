@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - main
+      - main 
 
 jobs:
   deploy:
@@ -19,4 +19,7 @@ jobs:
       run: |
         echo "$SSH_PRIVATE_KEY" > keyfile
         chmod 600 keyfile
+        mkdir -p ~/.ssh
+        cp authorized_keys ~/.ssh/authorized_keys
         ssh -t -i keyfile ubuntu@ec2-16-170-208-183.eu-north-1.compute.amazonaws.com "sudo bash ~/deploy.sh"
+
